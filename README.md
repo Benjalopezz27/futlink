@@ -32,7 +32,7 @@ El proyecto implementa un patrón de **Monolito Modular** en el backend. Toda la
 ---
 
 ## 3. Stack Tecnológico
-*   **Frontend**: React + Tailwind CSS.
+*   **Frontend**: Next.js (React) + Tailwind CSS.
 *   **Backend**: NestJS (Node.js) REST API con TypeORM.
 *   **Base de Datos**: PostgreSQL.
 *   **Almacenamiento**: Cloudinary (para imágenes fijas como fotos de perfil o logos de clubes).
@@ -44,7 +44,7 @@ Para la fase MVP, se emplean servicios en la nube con capas gratuitas:
 
 | Componente | Plataforma | Descripción |
 | :--- | :--- | :--- |
-| **Frontend** | Vercel / Netlify | Alojamiento SPA con despliegue continuo (CI/CD) desde GitHub. |
+| **Frontend** | Vercel | Alojamiento Next.js con despliegue continuo (CI/CD) desde GitHub. |
 | **Backend** | Render / Koyeb | Servidor stateless (con Cold Start de ~30s tras inactividad en capa gratuita). |
 | **Base de Datos** | Neon.tech / Supabase | PostgreSQL Serverless. |
 | **Media Storage** | Cloudinary | CDN para imágenes. Los videos de *highlights* se incrustan desde YouTube/Vimeo. |
@@ -57,7 +57,7 @@ Para la fase MVP, se emplean servicios en la nube con capas gratuitas:
           v
 +-----------------------------+
 |        FRONTEND             |  <-- Alojado en VERCEL (Costo: $0)
-|  (React + Tailwind CSS)     |      Despliegue CI/CD desde GitHub
+|  (Next.js + Tailwind CSS)   |      Despliegue CI/CD desde GitHub
 +-----------------------------+
           |
           | (Peticiones HTTP con token JWT)

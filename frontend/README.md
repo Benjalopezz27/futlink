@@ -1,32 +1,60 @@
-# React + TypeScript + Vite
+# FutLink Frontend (Next.js)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Este es el frontend de **FutLink**, migrado de Vite a **Next.js 15** utilizando el **App Router** y **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Core**: Next.js 15 (React 19)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS v4 + Radix UI / Shadcn
+- **Linter**: Oxlint para análisis estático ultrarrápido
 
-## React Compiler
+## Comenzando
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Requisitos Previos
 
-## Expanding the Oxlint configuration
+- Node.js 18.18.0 o superior (Recomendado v20.19.0+ o v22.12.0+).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Instalación
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Instala las dependencias del proyecto:
+
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Servidor de Desarrollo
+
+Inicia el servidor de desarrollo local:
+
+```bash
+npm run dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
+
+### Construcción para Producción
+
+Para compilar la aplicación para producción:
+
+```bash
+npm run build
+```
+
+Este comando genera una compilación optimizada en la carpeta `.next`.
+
+### Ejecutar en Producción
+
+Para iniciar el servidor Next.js en modo producción:
+
+```bash
+npm run start
+```
+
+### Calidad de Código (Linting)
+
+Para ejecutar el linter ultrarrápido Oxlint:
+
+```bash
+npm run lint
+```

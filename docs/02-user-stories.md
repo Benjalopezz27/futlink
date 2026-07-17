@@ -8,7 +8,7 @@ Este documento contiene las historias de usuario organizadas por Épicas, estruc
 * **Quiero** registrarme indicando mi email, contraseña y si soy Jugador o Reclutador,
 * **Para** poder crear mi cuenta y acceder a las funciones de la plataforma.
 * *Criterios de Aceptación:*
-    * El formulario de React debe validar el formato del email y longitud de contraseña (>8 caracteres).
+    * El formulario de Next.js (React) debe validar el formato del email y longitud de contraseña (>8 caracteres).
     * El backend debe retornar error 409 si el email ya existe.
     * Al registrarse con éxito, el sistema genera la entidad `User` y loguea automáticamente al usuario devolviendo un JWT.
 

@@ -12,15 +12,15 @@ Esta decisión reduce la complejidad operativa inicial y el costo de infraestruc
 *   `OpportunitiesModule`: Creación de ofertas de clubes/universidades y flujo de postulaciones.
 
 ## 2. Stack Tecnológico
-*   **Frontend:** React + Tailwind CSS. Construcción de interfaces dinámicas, reutilizables y ágiles mediante un ecosistema basado en componentes.
+*   **Frontend:** Next.js (React) + Tailwind CSS. Aplicación moderna con renderizado en el servidor (SSR) y generación estática (SSG) utilizando el App Router para optimizar la velocidad y SEO.
 *   **Backend:** NestJS (Node.js). Framework estructurado que impone buenas prácticas (Inyección de Dependencias, Decoradores, separación de responsabilidades).
 *   **Base de Datos:** PostgreSQL gestionada mediante TypeORM. Ideal para asegurar la integridad referencial y ejecutar consultas complejas de filtros deportivos.
 
 ## 3. Infraestructura Cloud (Capa Gratuita / Serverless)
 Para mantener un costo operativo de $0 durante el desarrollo y la fase MVP, se utilizan servicios PaaS (Platform as a Service) y Serverless:
 
-*   **Hosting Frontend (React): Vercel / Netlify**
-    *   Plataforma optimizada para aplicaciones SPA/Serverless.
+*   **Hosting Frontend (Next.js): Vercel**
+    *   Plataforma optimizada para aplicaciones Next.js y Serverless.
     *   Despliegue continuo (CI/CD) automático desde el repositorio de GitHub.
     *   Distribución global mediante CDN.
 *   **Hosting Backend (NestJS): Render / Koyeb**
@@ -41,7 +41,7 @@ Para mantener un costo operativo de $0 durante el desarrollo y la fase MVP, se u
           v
 +-----------------------------+
 |        FRONTEND             |  <-- Alojado en VERCEL (Costo: $0)
-|  (React + Tailwind CSS)     |      Despliegue CI/CD desde GitHub
+|  (Next.js + Tailwind CSS)   |      Despliegue CI/CD desde GitHub
 +-----------------------------+
           |
           | (Peticiones HTTP con token JWT)
