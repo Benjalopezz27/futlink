@@ -1,99 +1,77 @@
 "use client";
-import { motion } from "framer-motion";
+import React from "react";
 import { Zap } from "lucide-react";
+import { Globe } from "@/components/ui/globe";
 
 export function ConnectionMap() {
-  const nodes = [
-    { x: 22, y: 62, label: "São Paulo, BR" },
-    { x: 18, y: 70, label: "Buenos Aires, AR" },
-    { x: 30, y: 40, label: "Miami, US" },
-    { x: 38, y: 32, label: "New York, US" },
-    { x: 52, y: 34, label: "London, UK" },
-    { x: 60, y: 40, label: "Madrid, ES" },
-    { x: 78, y: 45, label: "Tokyo, JP" },
-    { x: 66, y: 55, label: "Lagos, NG" },
+  const markers = [
+    { id: "buenos-aires", location: [-34.6037, -58.3816] as [number, number], label: "Buenos Aires" },
+    { id: "sao-paulo", location: [-23.5505, -46.6333] as [number, number], label: "São Paulo" },
+    { id: "mexico", location: [19.4326, -99.1332] as [number, number], label: "México" },
+    { id: "miami", location: [25.7617, -80.1918] as [number, number], label: "Miami" },
+    { id: "new-york", location: [40.7128, -74.0060] as [number, number], label: "New York" },
+    { id: "madrid", location: [40.4168, -3.7038] as [number, number], label: "Madrid" },
+    { id: "london", location: [51.5074, -0.1278] as [number, number], label: "London" },
+    { id: "paris", location: [48.8566, 2.3522] as [number, number], label: "París" },
+    { id: "roma", location: [41.9028, 12.4964] as [number, number], label: "Roma" },
+    { id: "lagos", location: [6.5244, 3.3792] as [number, number], label: "Lagos" },
+    { id: "senegal", location: [14.7167, -17.4677] as [number, number], label: "Senegal" },
+    { id: "sudafrica", location: [-26.2041, 28.0473] as [number, number], label: "Sudáfrica" },
+    { id: "tokyo", location: [35.6762, 139.6503] as [number, number], label: "Tokyo" },
+    { id: "seul", location: [37.5665, 126.9780] as [number, number], label: "Seúl" },
   ];
-  const links: [number, number][] = [
-    [0, 2],
-    [1, 3],
-    [0, 5],
-    [2, 4],
-    [5, 7],
-    [3, 4],
-    [6, 4],
-    [1, 5],
+
+  const arcs = [
+    { id: "arc1", from: [-34.6037, -58.3816] as [number, number], to: [40.4168, -3.7038] as [number, number] }, // Buenos Aires -> Madrid
+    { id: "arc2", from: [-23.5505, -46.6333] as [number, number], to: [51.5074, -0.1278] as [number, number] }, // São Paulo -> London
+    { id: "arc3", from: [19.4326, -99.1332] as [number, number], to: [40.4168, -3.7038] as [number, number] }, // México -> Madrid
+    { id: "arc4", from: [25.7617, -80.1918] as [number, number], to: [-34.6037, -58.3816] as [number, number] }, // Miami -> Buenos Aires
+    { id: "arc5", from: [6.5244, 3.3792] as [number, number], to: [48.8566, 2.3522] as [number, number] }, // Lagos -> París
+    { id: "arc6", from: [14.7167, -17.4677] as [number, number], to: [40.4168, -3.7038] as [number, number] }, // Senegal -> Madrid
+    { id: "arc7", from: [35.6762, 139.6503] as [number, number], to: [41.9028, 12.4964] as [number, number] }, // Tokyo -> Roma
+    { id: "arc8", from: [-23.5505, -46.6333] as [number, number], to: [40.4168, -3.7038] as [number, number] }, // São Paulo -> Madrid
+    { id: "arc9", from: [-26.2041, 28.0473] as [number, number], to: [51.5074, -0.1278] as [number, number] }, // Sudáfrica -> London
+    { id: "arc10", from: [37.5665, 126.9780] as [number, number], to: [40.4168, -3.7038] as [number, number] }, // Seúl -> Madrid
+    { id: "arc11", from: [40.7128, -74.0060] as [number, number], to: [51.5074, -0.1278] as [number, number] }, // New York -> London
+    { id: "arc12", from: [-23.5505, -46.6333] as [number, number], to: [25.7617, -80.1918] as [number, number] }, // São Paulo -> Miami
   ];
 
   return (
-    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-md">
-      {/* dotted globe grid */}
-      <svg viewBox="0 0 100 60" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
-        <defs>
-          <pattern id="dots" width="2" height="2" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="0.2" fill="rgba(16,185,129,0.25)" />
-          </pattern>
-        </defs>
-        <rect width="100" height="60" fill="url(#dots)" />
-        {/* horizontal latitude arcs */}
-        {[15, 30, 45].map((y, i) => (
-          <path key={i} d={`M 0 ${y} Q 50 ${y - 6} 100 ${y}`} fill="none" stroke="rgba(16,185,129,0.15)" strokeWidth="0.2" />
-        ))}
+    <section className="relative w-full md:aspect-[16/9] aspect-auto min-h-[620px] md:min-h-0 max-w-7xl bg-slate-950 overflow-hidden font-sans border border-slate-800/50 rounded-2xl mx-auto shadow-2xl flex flex-col items-center justify-center p-6 md:p-0">
+      
+      {/* 1. Capa de Fondo: Grid de puntos sutiles */}
+      <div 
+        className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at center, #64748B 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
 
-        {/* links */}
-        {links.map(([a, b], i) => {
-          const na = nodes[a];
-          const nb = nodes[b];
-          const midX = (na.x + nb.x) / 2;
-          const midY = Math.min(na.y, nb.y) - 8;
-          const d = `M ${na.x} ${na.y} Q ${midX} ${midY} ${nb.x} ${nb.y}`;
-          return (
-            <g key={i}>
-              <path d={d} fill="none" stroke="rgba(16,185,129,0.35)" strokeWidth="0.25" />
-              <path
-                d={d}
-                fill="none"
-                stroke="#10B981"
-                strokeWidth="0.35"
-                strokeDasharray="3 200"
-                style={{ animation: `dash ${3 + i * 0.4}s linear infinite`, filter: "drop-shadow(0 0 1px #10B981)" }}
-              />
-            </g>
-          );
-        })}
-      </svg>
-
-      {/* nodes */}
-      {nodes.map((n, i) => (
-        <div
-          key={i}
-          className="absolute -translate-x-1/2 -translate-y-1/2"
-          style={{ left: `${n.x}%`, top: `${n.y}%` }}
-        >
-          <span className="relative flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400 shadow-glow-emerald" />
-          </span>
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-slate-400">
-            {n.label}
-          </span>
+      {/* 2. Globe Component (Cobe) */}
+      <div className="relative md:absolute md:inset-0 z-10 w-full flex items-center justify-center p-4">
+        <div className="w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] md:w-[580px] md:h-[580px] max-w-full max-h-full">
+          <Globe markers={markers} arcs={arcs} className="w-full h-full" />
         </div>
-      ))}
+      </div>
 
-      {/* floating notification */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6 }}
-        className="absolute bottom-6 right-6 max-w-xs rounded-xl border border-orange-400/30 bg-orange-500/10 p-4 backdrop-blur-md"
-      >
-        <div className="flex items-center gap-2">
-          <Zap className="h-4 w-4 text-orange-400" />
-          <p className="font-mono text-[10px] uppercase tracking-widest text-orange-300">Match confirmado</p>
+      {/* 3. UI Superpuesta Flotante */}
+      <div className="relative md:absolute md:bottom-8 md:right-8 z-30 bg-slate-950/80 backdrop-blur-xl border border-orange-500/30 p-5 rounded-2xl shadow-[0_0_40px_rgba(249,115,22,0.15)] max-w-[280px] w-full mt-4 md:mt-0">
+        <div className="flex items-center gap-2 text-orange-500 mb-3">
+          <Zap className="h-4 w-4 text-orange-500" />
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Match Confirmado</span>
         </div>
-        <p className="mt-1 text-sm font-semibold text-white">São Paulo → Miami</p>
-        <p className="text-xs text-slate-400">L. Moreira aceptó la propuesta.</p>
-      </motion.div>
-    </div>
+        <p className="text-white font-semibold text-sm leading-tight mb-1">Volante Mixto: São Paulo → Madrid</p>
+        <p className="text-slate-400 text-[11px] leading-relaxed">L. Moreira aceptó la propuesta de beca del club.</p>
+        
+        {/* Progress bar decorativa */}
+        <div className="mt-4 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-orange-500 to-emerald-500 w-[85%] rounded-full"></div>
+        </div>
+      </div>
+
+      {/* Viñeta oscura en los bordes para dar profundidad */}
+      <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,#020617_100%)]" />
+    </section>
   );
 }
