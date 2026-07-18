@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 export function BigRadar() {
-  const size = 320;
+  const size = 380;
   const cx = size / 2;
   const cy = size / 2;
   const axes = 6;
@@ -10,9 +10,9 @@ export function BigRadar() {
   const angle = (i: number) => (Math.PI * 2 * i) / axes - Math.PI / 2;
   const pt = (i: number, r: number) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r];
   const rings = [0.25, 0.5, 0.75, 1];
-  const R = 130;
+  const R = 120; // Slightly reduce radar radius to leave even more margin for long label strings
   const playerPts = values.map((v, i) => pt(i, R * v).join(",")).join(" ");
-  const labels = ["Velocidad", "Técnica", "Físico", "Táctica", "Tiro", "Visión"];
+  const labels = ["Ofensiva", "Recuperación", "Distribución", "Duelos", "Posicionamiento", "Juego Aéreo"];
 
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="h-full w-full">

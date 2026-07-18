@@ -9,15 +9,22 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  const navItems = [
+    { label: "Inicio", href: "#inicio" },
+    { label: "Análisis", href: "#analisis" },
+    { label: "Red Global", href: "#red" },
+    { label: "Casos de Éxito", href: "#casos-exito" },
+  ];
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-white/10 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:py-6">
         <Logo />
         
         <nav className="hidden items-center gap-8 md:flex">
-          {["Jugadores", "Reclutadores", "Tecnología"].map((l) => (
-            <a key={l} href="#" className="text-base font-medium text-slate-600 dark:text-slate-300 transition hover:text-emerald-500 dark:hover:text-emerald-400">
-              {l}
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} className="text-base font-medium text-slate-600 dark:text-slate-300 transition hover:text-emerald-500 dark:hover:text-emerald-400">
+              {item.label}
             </a>
           ))}
         </nav>
@@ -82,9 +89,11 @@ export function Navbar() {
       {open ? (
         <div className="border-t border-slate-200 dark:border-white/10 bg-white/95 dark:bg-slate-950/95 md:hidden transition-all duration-300">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-slate-700 dark:text-slate-200 text-lg">
-            <a href="#" className="font-medium hover:text-emerald-500 dark:hover:text-emerald-400 transition">Jugadores</a>
-            <a href="#" className="font-medium hover:text-emerald-500 dark:hover:text-emerald-400 transition">Reclutadores</a>
-            <a href="#" className="font-medium hover:text-emerald-500 dark:hover:text-emerald-400 transition">Tecnología</a>
+            {navItems.map((item) => (
+              <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="font-medium hover:text-emerald-500 dark:hover:text-emerald-400 transition">
+                {item.label}
+              </a>
+            ))}
             <a href="#" className="rounded-full bg-emerald-500 px-5 py-3 text-center font-semibold text-slate-955 transition hover:bg-emerald-400">Crear Cuenta</a>
           </div>
         </div>

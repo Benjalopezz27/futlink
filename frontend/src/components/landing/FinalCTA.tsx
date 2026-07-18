@@ -11,7 +11,7 @@ export function FinalCTA() {
           <div className="absolute inset-0 opacity-30 pitch-grid" style={{ maskImage: "radial-gradient(ellipse at center, black, transparent 70%)" }} />
           <div className="relative">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-              Tu próximo <span className="text-emerald-400 text-glow-emerald">match</span> te está esperando.
+              Tu próximo match te está esperando.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-slate-600 dark:text-slate-400">
               Crea tu perfil en menos de 5 minutos y entra al radar de reclutadores de todo el mundo.

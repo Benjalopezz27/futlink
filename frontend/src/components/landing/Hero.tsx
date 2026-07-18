@@ -8,7 +8,7 @@ import { MiniRadar } from "./MiniRadar";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden min-h-[92vh] flex items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <section id="inicio" className="relative isolate overflow-hidden min-h-[92vh] flex items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {/* 3D Isometric tactical soccer pitch background */}
       <PitchBackground />
 
