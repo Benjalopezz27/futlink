@@ -11,7 +11,7 @@ export function PitchBackground() {
   ];
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-slate-950">
+    <div className="absolute inset-0 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {/* Dark background radial gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(16,185,129,0.12),transparent_70%),radial-gradient(ellipse_at_50%_100%,rgba(249,115,22,0.06),transparent_60%)] pointer-events-none" />
 
@@ -149,7 +149,7 @@ export function PitchBackground() {
       </div>
 
       {/* scanlines vignette */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.5),transparent_25%,transparent_75%,#020617)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.5),transparent_25%,transparent_75%,#f8fafc)] dark:bg-[linear-gradient(to_bottom,rgba(2,6,23,0.5),transparent_25%,transparent_75%,#020617)] pointer-events-none transition-all duration-300" />
     </div>
   );
 }

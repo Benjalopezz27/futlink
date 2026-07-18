@@ -20,10 +20,10 @@ export function AnimatedBar({ label, value, delay }: { label: string; value: num
   return (
     <div ref={ref}>
       <div className="mb-1.5 flex items-center justify-between font-mono text-xs uppercase tracking-widest">
-        <span className="text-slate-300">{label}</span>
-        <span className="text-emerald-300">{display}</span>
+        <span className="text-slate-700 dark:text-slate-300">{label}</span>
+        <span className="text-emerald-600 dark:text-emerald-300">{display}</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-white/5">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-white/5">
         <motion.div
           initial={{ width: 0 }}
           animate={inView ? { width: `${value}%` } : { width: 0 }}

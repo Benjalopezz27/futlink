@@ -2,8 +2,11 @@
 import React from "react";
 import { Zap } from "lucide-react";
 import { Globe } from "@/components/ui/globe";
+import { useTheme } from "@/components/ThemeProvider";
 
 export function ConnectionMap() {
+  const { theme } = useTheme();
+
   const markers = [
     { id: "buenos-aires", location: [-34.6037, -58.3816] as [number, number], label: "Buenos Aires" },
     { id: "sao-paulo", location: [-23.5505, -46.6333] as [number, number], label: "São Paulo" },
@@ -37,7 +40,7 @@ export function ConnectionMap() {
   ];
 
   return (
-    <section className="relative w-full md:aspect-[16/9] aspect-auto min-h-[620px] md:min-h-0 max-w-7xl bg-slate-950 overflow-hidden font-sans border border-slate-800/50 rounded-2xl mx-auto shadow-2xl flex flex-col items-center justify-center p-6 md:p-0">
+    <section className="relative w-full md:aspect-[16/9] aspect-auto min-h-[620px] md:min-h-0 max-w-7xl bg-slate-50 dark:bg-slate-950 overflow-hidden font-sans border border-slate-200 dark:border-slate-800/50 rounded-2xl mx-auto shadow-lg dark:shadow-2xl flex flex-col items-center justify-center p-6 md:p-0 transition-colors duration-300">
       
       {/* 1. Capa de Fondo: Grid de puntos sutiles */}
       <div 
@@ -51,27 +54,27 @@ export function ConnectionMap() {
       {/* 2. Globe Component (Cobe) */}
       <div className="relative md:absolute md:inset-0 z-10 w-full flex items-center justify-center p-4">
         <div className="w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] md:w-[580px] md:h-[580px] max-w-full max-h-full">
-          <Globe markers={markers} arcs={arcs} className="w-full h-full" />
+          <Globe markers={markers} arcs={arcs} className="w-full h-full" dark={theme === "dark" ? 1 : 0} />
         </div>
       </div>
 
       {/* 3. UI Superpuesta Flotante */}
-      <div className="relative md:absolute md:bottom-8 md:right-8 z-30 bg-slate-950/80 backdrop-blur-xl border border-orange-500/30 p-5 rounded-2xl shadow-[0_0_40px_rgba(249,115,22,0.15)] max-w-[280px] w-full mt-4 md:mt-0">
+      <div className="relative md:absolute md:bottom-8 md:right-8 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border border-orange-500/30 p-5 rounded-2xl shadow-lg dark:shadow-[0_0_40px_rgba(249,115,22,0.15)] max-w-[280px] w-full mt-4 md:mt-0 transition-all duration-300">
         <div className="flex items-center gap-2 text-orange-500 mb-3">
           <Zap className="h-4 w-4 text-orange-500" />
           <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Match Confirmado</span>
         </div>
-        <p className="text-white font-semibold text-sm leading-tight mb-1">Volante Mixto: São Paulo → Madrid</p>
-        <p className="text-slate-400 text-[11px] leading-relaxed">L. Moreira aceptó la propuesta de beca del club.</p>
+        <p className="text-slate-900 dark:text-white font-semibold text-sm leading-tight mb-1">Volante Mixto: São Paulo → Madrid</p>
+        <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">L. Moreira aceptó la propuesta de beca del club.</p>
         
         {/* Progress bar decorativa */}
-        <div className="mt-4 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+        <div className="mt-4 h-1 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
           <div className="h-full bg-gradient-to-r from-orange-500 to-emerald-500 w-[85%] rounded-full"></div>
         </div>
       </div>
 
       {/* Viñeta oscura en los bordes para dar profundidad */}
-      <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,#020617_100%)]" />
+      <div className="absolute inset-0 z-20 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,#f8fafc_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_40%,#020617_100%)] transition-all duration-300" />
     </section>
   );
 }

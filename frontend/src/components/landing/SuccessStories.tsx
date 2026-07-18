@@ -115,7 +115,7 @@ function SuccessCard({ player }: { player: PlayerData }) {
           "--glow-x": `${glow.x}%`,
           "--glow-y": `${glow.y}%`,
         }}
-        className={`group relative rounded-2xl bg-slate-950 p-[1px] transition-all duration-300 h-full ${colorMap.glowShadow} hover:border-transparent`}
+        className={`group relative rounded-2xl bg-slate-200 dark:bg-slate-950 p-[1px] transition-all duration-300 h-full ${colorMap.glowShadow} hover:border-transparent`}
       >
         {/* Holographic Border Glow */}
         <div
@@ -130,7 +130,7 @@ function SuccessCard({ player }: { player: PlayerData }) {
         />
 
         {/* Content Container */}
-        <div className="relative z-10 bg-slate-950/90 rounded-[15px] p-6 h-full flex flex-col justify-between overflow-hidden">
+        <div className="relative z-10 bg-white/95 dark:bg-slate-950/90 rounded-[15px] p-6 h-full flex flex-col justify-between overflow-hidden">
           
           {/* Holographic Grid Background in Silhouette Area */}
           <div className="absolute inset-0 z-0 opacity-10 pointer-events-none"
@@ -152,7 +152,7 @@ function SuccessCard({ player }: { player: PlayerData }) {
             </div>
 
             {/* Silhouette & HUD Section */}
-            <div className="relative w-full aspect-[4/3] rounded-xl bg-slate-900/40 border border-white/5 overflow-hidden flex items-end justify-center mb-6">
+            <div className="relative w-full aspect-[4/3] rounded-xl bg-slate-100 dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 overflow-hidden flex items-end justify-center mb-6">
               {/* Radar Circle HUD Decorator */}
               <div className={`absolute bottom-0 w-44 h-44 rounded-full border border-dashed opacity-25 animate-[spin_30s_linear_infinite] ${player.themeColor === "orange" ? "border-orange-500" : "border-emerald-500"}`} />
               <div className={`absolute bottom-4 w-32 h-32 rounded-full border opacity-15 ${player.themeColor === "orange" ? "border-orange-500" : "border-emerald-500"}`} />
@@ -168,8 +168,8 @@ function SuccessCard({ player }: { player: PlayerData }) {
 
             {/* Player Info */}
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white tracking-tight">{player.name}</h3>
-              <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-400 font-mono">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">{player.name}</h3>
+              <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
                 <span className="uppercase tracking-widest font-semibold text-emerald-400">{player.position}</span>
                 <span>•</span>
                 <span>{player.age}</span>
@@ -177,7 +177,7 @@ function SuccessCard({ player }: { player: PlayerData }) {
             </div>
 
             {/* Transition Block (Before & After) */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4 mb-6">
+            <div className="bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-xl p-4 mb-6">
               <div className="flex items-center justify-between text-xs font-mono text-slate-500 mb-2">
                 <span className="uppercase tracking-wider">Origen</span>
                 <span className="uppercase tracking-wider">Destino</span>
@@ -186,16 +186,16 @@ function SuccessCard({ player }: { player: PlayerData }) {
                 <div className="flex-1">
                   <div className="flex items-center gap-1.5">
                     <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-                    <p className="text-slate-300 font-semibold text-xs truncate leading-snug">{player.before}</p>
+                    <p className="text-slate-700 dark:text-slate-300 font-semibold text-xs truncate leading-snug">{player.before}</p>
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mt-0.5 block">Libre/Amateur</span>
                 </div>
-                <div className="shrink-0 flex items-center justify-center h-7 w-7 rounded-full bg-slate-900 border border-white/10 group-hover:border-emerald-500/30 transition-all duration-300">
+                <div className="shrink-0 flex items-center justify-center h-7 w-7 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 group-hover:border-emerald-500/30 transition-all duration-300">
                   <ArrowRight className="h-4 w-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <div className="flex-1 text-right">
                   <div className="flex items-center gap-1.5 justify-end">
-                    <p className="text-white font-bold text-xs truncate leading-snug">{player.after}</p>
+                    <p className="text-slate-900 dark:text-white font-bold text-xs truncate leading-snug">{player.after}</p>
                     <Award className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                   </div>
                   <span className="text-[10px] uppercase tracking-wider text-orange-400 font-mono mt-0.5 block">Contrato Pro</span>
@@ -205,9 +205,9 @@ function SuccessCard({ player }: { player: PlayerData }) {
           </div>
 
           {/* Stats block */}
-          <div className="border-t border-white/5 pt-4">
+          <div className="border-t border-slate-200 dark:border-white/5 pt-4">
             <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
                 <Activity className={`h-4 w-4 ${colorMap.accentText}`} />
                 <span>{player.statName}</span>
               </div>
@@ -215,7 +215,7 @@ function SuccessCard({ player }: { player: PlayerData }) {
             </div>
             
             {/* Stat Progress Bar */}
-            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: "0%" }}
                 whileInView={{ width: `${player.statPercent}%` }}
@@ -228,9 +228,9 @@ function SuccessCard({ player }: { player: PlayerData }) {
             {/* Quick Metrics HUD */}
             <div className="grid grid-cols-3 gap-2 mt-4 text-[10px] font-mono text-center text-slate-500">
               {player.attributes.map((attr, idx) => (
-                <div key={idx} className="bg-white/[0.01] border border-white/5 rounded-md py-1.5">
+                <div key={idx} className="bg-slate-50/50 dark:bg-white/[0.01] border border-slate-200 dark:border-white/5 rounded-md py-1.5">
                   <p className="uppercase text-[9px] text-slate-500 mb-0.5">{attr.name}</p>
-                  <p className="font-bold text-slate-300">{attr.value}%</p>
+                  <p className="font-bold text-slate-750 dark:text-slate-300">{attr.value}%</p>
                 </div>
               ))}
             </div>
@@ -329,7 +329,7 @@ export function SuccessStories() {
   };
 
   return (
-    <section className="relative w-full bg-slate-950 py-24 px-6 md:px-12 overflow-hidden border-t border-slate-900">
+    <section className="relative w-full bg-slate-50 dark:bg-slate-950 py-24 px-6 md:px-12 overflow-hidden border-t border-slate-200 dark:border-slate-900 transition-colors duration-300">
       
       {/* Background Grid Mesh */}
       <div 
@@ -363,7 +363,7 @@ export function SuccessStories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl"
+            className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-5xl"
           >
             Fichajes que{" "}
             <span className="bg-gradient-to-r from-emerald-300 via-emerald-400 to-cyan-300 bg-clip-text text-transparent text-glow-emerald">
@@ -377,7 +377,7 @@ export function SuccessStories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 max-w-2xl mx-auto text-base text-slate-400"
+            className="mt-4 max-w-2xl mx-auto text-base text-slate-600 dark:text-slate-400"
           >
             De ligas locales y estados libres a contratos profesionales. Conoce a los deportistas que validaron sus datos y consiguieron su club ideal.
           </motion.p>
