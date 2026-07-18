@@ -1,6 +1,6 @@
 # Sistema de Diseño y Decisiones de UI (UI Guidelines)
 
-Este documento centraliza las decisiones de diseño, la paleta de colores y la biblioteca de componentes para asegurar consistencia visual en todo el desarrollo frontend (React + Tailwind CSS).
+Este documento centraliza las decisiones de diseño, la paleta de colores y la biblioteca de componentes para asegurar consistencia visual en todo el desarrollo frontend (Next.js + Tailwind CSS).
 
 ## 1. Identidad Visual y Concepto
 * **Concepto:** "Rendimiento y Dinamismo".

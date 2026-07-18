@@ -1,6 +1,6 @@
 # Mapa de Pantallas y Wireframes (UI/UX)
 
-Este documento detalla la estructura de pantallas necesarias para el desarrollo del MVP en React, divididas por el flujo de interacción de cada tipo de usuario. El diseño se basa en la paleta visual "Rendimiento y Dinamismo" (Verde Esmeralda como color principal, Naranja Eléctrico para los llamados a la acción y Gris Asfalto para textos).
+Este documento detalla la estructura de pantallas necesarias para el desarrollo del MVP en Next.js, divididas por el flujo de interacción de cada tipo de usuario. El diseño se basa en la paleta visual "Rendimiento y Dinamismo" (Verde Esmeralda como color principal, Naranja Eléctrico para los llamados a la acción y Gris Asfalto para textos).
 
 ## 1. Flujo Público y Autenticación (Onboarding)
 Pantallas iniciales enfocadas en la conversión y claridad de la propuesta de valor.
