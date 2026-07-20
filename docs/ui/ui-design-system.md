@@ -3,21 +3,23 @@
 Este documento centraliza las decisiones de diseño, la paleta de colores y la biblioteca de componentes para asegurar consistencia visual en todo el desarrollo frontend (Next.js + Tailwind CSS).
 
 ## 1. Identidad Visual y Concepto
-* **Concepto:** "Rendimiento y Dinamismo".
-* **Vibe:** Fresco, competitivo, profesional y analítico. Se aleja del estilo corporativo tradicional (LinkedIn) y del estilo tecnológico/IA, acercándose a aplicaciones de rendimiento deportivo. El diseño debe enmarcar el talento, sin competir visualmente con las fotos y videos de los jugadores.
-* **Tipografía:** Familia *Sans-serif* moderna, limpia y altamente legible para interfaces ricas en datos. (Recomendación: `Inter`, `Roboto` o `Poppins`).
+* **Concepto:** "Césped Nocturno & Rendimiento Real".
+* **Vibe:** Competitivo, analítico y anclado en el mundo real del fútbol. Se aleja del estilo corporativo genérico (SaaS / LinkedIn) y adopta una estética inmersiva inspirada en estadios y retransmisiones deportivas de noche. El diseño enmarca el talento y los datos reales sin estridencias artificiales.
+* **Tipografía:** 
+  * *Display (Títulos y Acentos):* Display condensada de estilo deportivo y marcador de TV: `Barlow Condensed` (espíritu de cartel/dorsal de estadio).
+  * *Sans-serif (Datos y Contenido):* Familia utilitaria simple, limpia y altamente legible: `Inter`.
 
 ## 2. Paleta de Colores (Tailwind CSS)
 
 | Rol | Nombre | Clase Tailwind | Hexadecimal | Uso Principal |
 | :--- | :--- | :--- | :--- | :--- |
-| **Primario** | Verde Esmeralda | `bg-emerald-700` | `#047857` | Navbar, encabezados, íconos de sección y marcas de confianza. |
-| **Acento** | Naranja Eléctrico | `bg-orange-500` | `#F97316` | CTAs principales, botones de "Postularse" o "Match", notificaciones de estado. |
-| **Fondo Base** | Blanco Puro | `bg-white` | `#FFFFFF` | Fondos de tarjetas, modales, formularios y áreas de contenido denso. |
-| **Fondo Sec.** | Gris Hielo | `bg-slate-50` | `#F8FAFC` | Fondo del `body` general para generar contraste con las tarjetas blancas. |
-| **Texto Princ.** | Gris Asfalto | `text-slate-700` | `#334155` | Párrafos, descripciones y contenido general (garantiza legibilidad sin fatiga visual). |
-| **Texto Sec.** | Gris Claro | `text-slate-500` | `#64748B` | Labels de formularios, placeholders, fechas y textos de menor jerarquía. |
-| **Oscuro** | Slate Profundo | `bg-slate-900` | `#0F172A` | Footer, tooltips y elementos estructurales de máximo contraste. |
+| **Fondo Base** | Césped Nocturno | `bg-slate-950` / `bg-background` | `#0D1410` | Fondo general de la aplicación en modo oscuro (sugiere césped de noche). |
+| **Primario (Acento)** | Verde Césped Real | `bg-emerald-500` / `bg-primary` | `#3D7A3D` a `#5FA85F` | Acentos deportivos, arcos, indicadores y validaciones de datos (subduido, no neón). |
+| **Secundario (CTA)** | Naranja Arcilla / Amarillo Tarjeta | `bg-orange-500` / `bg-accent` | `#D9A441` | Botones de llamados a la acción, "Match", conos de entrenamiento y tarjetas. |
+| **Fondo Tarjetas** | Verde Bosque Profundo | `bg-slate-900` / `bg-card` | `#121C16` | Tarjetas de jugadores, paneles glassmorphism y elementos del feed. |
+| **Fondo Claro (Base)** | Crema Suave | `bg-slate-50` | `#FAFBF9` | Fondo general en modo claro. |
+| **Texto Princ.** | Blanco Roto / Crema | `text-slate-50` / `text-foreground` | `#FAFBF9` | Encabezados y textos principales (evita fatiga visual en pantallas oscuras). |
+| **Texto Sec.** | Verde Grisáceo | `text-slate-400` / `text-muted-foreground` | `#949E94` | Etiquetas de menor jerarquía y datos secundarios. |
 
 ## 3. Biblioteca de Componentes Base (UI Kit)
 

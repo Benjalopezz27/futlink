@@ -55,7 +55,7 @@ function StatWidget({
         <Icon className="h-4 w-4 text-emerald-500/60 dark:text-emerald-400/50 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-300 shrink-0" />
       </div>
       <div className="mt-3">
-        <div className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 dark:from-white dark:via-slate-200 dark:to-slate-300 bg-clip-text text-transparent group-hover:from-emerald-600 group-hover:to-cyan-600 dark:group-hover:from-emerald-400 dark:group-hover:to-cyan-300 transition-all duration-300">
+        <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-all duration-300">
           {display}
           {suffix && <span className="text-lg font-semibold text-slate-500 dark:text-slate-400 ml-1">{suffix}</span>}
         </div>
@@ -85,7 +85,6 @@ export function Analytics() {
       <div className="mt-16 grid gap-8 lg:grid-cols-2">
         <Reveal>
           <div className="relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-8 backdrop-blur-md shadow-lg dark:shadow-none">
-            <div className="absolute -top-px left-8 h-px w-24 bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
             <div className="mb-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-500/15 text-emerald-300">
@@ -109,7 +108,6 @@ export function Analytics() {
         <Reveal delay={0.15}>
           <div className="relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-8 backdrop-blur-md shadow-lg dark:shadow-none flex flex-col justify-between h-full">
             <div>
-              <div className="absolute -top-px left-8 h-px w-24 bg-gradient-to-r from-transparent via-orange-400 to-transparent" />
               <div className="mb-6 flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-lg bg-orange-500/15 text-orange-300">
                   <Activity className="h-5 w-5" />

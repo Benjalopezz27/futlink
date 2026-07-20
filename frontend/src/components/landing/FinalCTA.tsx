@@ -7,7 +7,7 @@ export function FinalCTA() {
   return (
     <Section className="py-32">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 bg-gradient-to-br from-emerald-500/10 via-slate-100/50 dark:via-slate-900/40 to-orange-500/10 p-12 text-center backdrop-blur-md">
+        <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-12 text-center backdrop-blur-md">
           <div className="absolute inset-0 opacity-30 pitch-grid" style={{ maskImage: "radial-gradient(ellipse at center, black, transparent 70%)" }} />
           <div className="relative">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">

@@ -40,10 +40,10 @@ export function Globe({
   markers = [],
   arcs = [],
   className = "",
-  markerColor = [0.98, 0.45, 0.09], // Naranja Eléctrico (#f97316)
-  baseColor = [0.12, 0.2, 0.16],     // Verde Esmeralda sutil para la base continental (#047857 tint)
-  arcColor = [0.06, 0.73, 0.51],     // Verde Esmeralda brillante para los arcos (#10b981)
-  glowColor = [0.02, 0.1, 0.08],     // Brillo atmosférico esmeralda muy tenue
+  markerColor = [0.85, 0.64, 0.25], // Clay Orange / Yellow Card (#D9A441)
+  baseColor = [0.15, 0.30, 0.15],     // Subdued Grass Green Continental Base
+  arcColor = [0.37, 0.66, 0.37],     // Subdued Grass Green Arcs (#5FA85F)
+  glowColor = [0.05, 0.08, 0.06],     // Atmospheric glow dark green (#0D1410)
   dark = 1,                          // 1 para modo oscuro (océano negro)
   mapBrightness = 12,
   markerSize = 0.035,

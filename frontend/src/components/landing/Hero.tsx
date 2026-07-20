@@ -34,7 +34,7 @@ export function Hero() {
           className="text-5xl font-bold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl"
         >
           El futuro del{" "}
-          <span className="bg-gradient-to-r from-emerald-300 via-emerald-400 to-cyan-300 bg-clip-text text-transparent text-glow-emerald">
+          <span className="text-emerald-500 dark:text-emerald-400">
             scouting
           </span>{" "}
           está aquí.
@@ -95,7 +95,7 @@ export function Hero() {
             <MiniRadar />
             <div className="text-right">
               <p className="font-mono text-[10px] uppercase text-slate-500 dark:text-slate-400">Score</p>
-              <p className="text-2xl font-bold text-orange-400 text-glow-orange">87</p>
+              <p className="text-2xl font-bold text-orange-400">87</p>
             </div>
           </div>
         </FloatingCard>
@@ -113,7 +113,7 @@ export function Hero() {
               initial={{ width: "0%" }}
               animate={{ width: "94%" }}
               transition={{ duration: 2, delay: 1.2 }}
-              className="h-full bg-gradient-to-r from-orange-500 to-emerald-400"
+              className="h-full bg-orange-500"
             />
           </div>
         </FloatingCard>

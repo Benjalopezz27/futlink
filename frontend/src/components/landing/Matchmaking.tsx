@@ -13,7 +13,7 @@ export function Matchmaking() {
           <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             Un jugador en Sudamérica.
             <br />
-            <span className="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">
+            <span className="text-emerald-500 dark:text-emerald-400">
               Una universidad en EE.UU.
             </span>
           </h2>

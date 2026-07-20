@@ -45,7 +45,7 @@ export function AnimatedBar({
           initial={{ width: 0 }}
           animate={inView ? { width: `${progressPercent}%` } : { width: 0 }}
           transition={{ duration: 1.6, delay, ease: "easeOut" }}
-          className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 shadow-glow-emerald"
+          className="h-full rounded-full bg-emerald-500"
         />
       </div>
     </div>

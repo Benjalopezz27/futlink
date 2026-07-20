@@ -31,8 +31,8 @@ export function MagneticButton({
 
   const styles =
     variant === "primary"
-      ? "bg-orange-500 text-white shadow-glow-orange hover:bg-orange-400"
-      : "bg-white/5 text-emerald-300 border border-emerald-400/50 hover:bg-emerald-500/10 hover:shadow-glow-emerald";
+      ? "bg-orange-500 text-white hover:bg-orange-400"
+      : "bg-white/5 text-emerald-300 border border-emerald-400/50 hover:bg-emerald-500/10";
 
   return (
     <motion.a

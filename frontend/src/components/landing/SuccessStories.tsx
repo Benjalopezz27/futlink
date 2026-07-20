@@ -116,21 +116,21 @@ export function SuccessStories() {
       accentText: "text-emerald-400",
       accentBg: "bg-emerald-500/10",
       accentBorder: "border-emerald-500/20",
-      glowShadow: "shadow-[0_0_50px_rgba(16,185,129,0.15)]",
+      glowShadow: "shadow-lg",
       glowBorder: "border-emerald-500/30",
     },
     orange: {
       accentText: "text-orange-400",
       accentBg: "bg-orange-500/10",
       accentBorder: "border-orange-500/20",
-      glowShadow: "shadow-[0_0_50px_rgba(249,115,22,0.15)]",
+      glowShadow: "shadow-lg",
       glowBorder: "border-orange-500/30",
     },
     dual: {
       accentText: "text-emerald-400",
-      accentBg: "bg-gradient-to-r from-emerald-500/10 to-orange-500/10",
+      accentBg: "bg-emerald-500/10",
       accentBorder: "border-emerald-500/20",
-      glowShadow: "shadow-[0_0_50px_rgba(16,185,129,0.15)]",
+      glowShadow: "shadow-lg",
       glowBorder: "border-emerald-500/30",
     }
   }[currentPlayer.themeColor];
@@ -251,7 +251,7 @@ export function SuccessStories() {
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3.5 bg-gradient-to-r from-emerald-500/10 to-orange-500/10 border border-emerald-500/20 rounded-2xl p-4">
+                    <div className="flex items-center gap-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-4">
                       <div className="h-10 w-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
                         <Activity className={`h-5 w-5 ${colorMap.accentText} animate-pulse`} />
                       </div>
@@ -270,7 +270,7 @@ export function SuccessStories() {
                       <img src={currentPlayer.videoPoster} alt={`${currentPlayer.name} highlights cover`} className="absolute inset-0 w-full h-full object-cover filter brightness-[0.35] contrast-[1.05] transition-all duration-700 group-hover/play:scale-102" />
                       <div className={`absolute h-28 w-28 rounded-full border border-dashed opacity-25 animate-[spin_20s_linear_infinite] ${currentPlayer.themeColor === "orange" ? "border-orange-500" : "border-emerald-500"}`} />
                       <div className={`absolute h-24 w-24 rounded-full border opacity-15 ${currentPlayer.themeColor === "orange" ? "border-orange-500" : "border-emerald-500"}`} />
-                      <motion.button whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} onClick={() => setPlaying(true)} className="relative z-20 h-20 w-20 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shadow-glow-emerald cursor-pointer" aria-label="Play highlight video">
+                      <motion.button whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} onClick={() => setPlaying(true)} className="relative z-20 h-20 w-20 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shadow-lg cursor-pointer" aria-label="Play highlight video">
                         <Play className="h-8 w-8 fill-slate-950 text-slate-950 ml-1" />
                       </motion.button>
                       <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent pointer-events-none z-10" />
@@ -294,7 +294,7 @@ export function SuccessStories() {
             </button>
             <div className="flex gap-2">
               {players.map((p, idx) => (
-                <button key={p.id} onClick={() => { setPlaying(false); setActiveIndex(idx); }} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "w-6 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" : "w-1.5 bg-slate-300 dark:bg-slate-700"}`} aria-label={`Go to slide ${idx + 1}`} />
+                <button key={p.id} onClick={() => { setPlaying(false); setActiveIndex(idx); }} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "w-6 bg-emerald-500" : "w-1.5 bg-slate-300 dark:bg-slate-700"}`} aria-label={`Go to slide ${idx + 1}`} />
               ))}
             </div>
             <button onClick={handleNext} className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 text-slate-800 dark:text-white flex items-center justify-center shadow-md active:scale-95 transition" aria-label="Next player">
@@ -304,7 +304,7 @@ export function SuccessStories() {
 
           <div className="md:flex justify-center gap-3 mt-8 hidden">
             {players.map((p, idx) => (
-              <button key={p.id} onClick={() => { setPlaying(false); setActiveIndex(idx); }} className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === activeIndex ? "w-8 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" : "w-2 bg-slate-300 dark:bg-slate-700"}`} aria-label={`Go to slide ${idx + 1}`} />
+              <button key={p.id} onClick={() => { setPlaying(false); setActiveIndex(idx); }} className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === activeIndex ? "w-8 bg-emerald-500" : "w-2 bg-slate-300 dark:bg-slate-700"}`} aria-label={`Go to slide ${idx + 1}`} />
             ))}
           </div>
         </div>

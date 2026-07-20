@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export function PitchBackground() {
   const players = [
@@ -10,37 +10,38 @@ export function PitchBackground() {
     { id: 5, pathX: [450, 520, 480, 450], pathY: [120, 210, 160, 120], color: "#06b6d4", delay: 2.2 },
   ];
 
-  return (
-    <div className="absolute inset-0 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      {/* Dark background radial gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(16,185,129,0.12),transparent_70%),radial-gradient(ellipse_at_50%_100%,rgba(249,115,22,0.06),transparent_60%)] pointer-events-none" />
+  const { scrollY } = useScroll();
+  
+  // Transform scroll position (0 to 800px) into 3D translation & rotation transitions
+  const rotateX = useTransform(scrollY, [0, 800], [55, 75]);
+  const rotateZ = useTransform(scrollY, [0, 800], [-35, -55]);
+  const y = useTransform(scrollY, [0, 800], [50, 220]);
+  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
+  return (
+    <motion.div 
+      style={{ opacity }}
+      className="absolute inset-0 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
+    >
       {/* 3D Isometric container */}
       <div 
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         style={{ perspective: "1000px" }}
       >
         <motion.div
-          initial={{ rotateX: 55, rotateZ: -35, y: 50, opacity: 0 }}
-          animate={{ 
-            rotateX: [55, 53, 55],
-            rotateZ: [-35, -37, -35],
-            y: [50, 40, 50],
-            opacity: 0.7
-          }}
-          transition={{
-            rotateX: { duration: 24, repeat: Infinity, ease: "easeInOut" },
-            rotateZ: { duration: 24, repeat: Infinity, ease: "easeInOut" },
-            y: { duration: 24, repeat: Infinity, ease: "easeInOut" },
-            opacity: { duration: 1.2, ease: "easeOut" }
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.7 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          style={{ 
+            rotateX, 
+            rotateZ, 
+            y,
           }}
           className="relative w-[1150px] h-[720px] origin-center"
         >
-          {/* Soccer pitch SVG */}
           <svg
             viewBox="0 0 800 500"
             className="w-full h-full text-emerald-500/40"
-            style={{ filter: "drop-shadow(0 0 25px rgba(16,185,129,0.15))" }}
           >
             <defs>
               <filter id="pitch-glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -60,7 +61,7 @@ export function PitchBackground() {
             </defs>
 
             {/* Pitch Base Lines (Emerald Glow) */}
-            <g stroke="#10b981" strokeWidth="2.5" fill="none" opacity="0.35" filter="url(#pitch-glow)">
+            <g stroke="#10b981" strokeWidth="2.5" fill="none" opacity="0.35">
               {/* Outer boundary */}
               <rect x="50" y="50" width="700" height="400" rx="4" />
               {/* Halfway line */}
@@ -114,20 +115,6 @@ export function PitchBackground() {
             {/* Glowing Tactical Players / Heat Dots */}
             {players.map((p) => (
               <g key={p.id}>
-                {/* Outer Glow */}
-                <motion.circle
-                  animate={{ cx: p.pathX, cy: p.pathY }}
-                  transition={{
-                    duration: 15 + p.id * 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: p.delay,
-                  }}
-                  r="10"
-                  fill={p.color}
-                  opacity="0.3"
-                  filter="url(#dot-glow)"
-                />
                 {/* Core Spot */}
                 <motion.circle
                   animate={{ cx: p.pathX, cy: p.pathY }}
@@ -150,6 +137,6 @@ export function PitchBackground() {
 
       {/* scanlines vignette */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.5),transparent_25%,transparent_75%,#f8fafc)] dark:bg-[linear-gradient(to_bottom,rgba(2,6,23,0.5),transparent_25%,transparent_75%,#020617)] pointer-events-none transition-all duration-300" />
-    </div>
+    </motion.div>
   );
 }
