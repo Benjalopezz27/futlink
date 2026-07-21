@@ -116,31 +116,31 @@ export function SuccessStories() {
       accentText: "text-emerald-400",
       accentBg: "bg-emerald-500/10",
       accentBorder: "border-emerald-500/20",
-      glowShadow: "shadow-lg",
+      glowShadow: "shadow-2xl shadow-emerald-500/5",
       glowBorder: "border-emerald-500/30",
     },
     orange: {
       accentText: "text-orange-400",
       accentBg: "bg-orange-500/10",
       accentBorder: "border-orange-500/20",
-      glowShadow: "shadow-lg",
+      glowShadow: "shadow-2xl shadow-orange-500/5",
       glowBorder: "border-orange-500/30",
     },
     dual: {
       accentText: "text-emerald-400",
       accentBg: "bg-emerald-500/10",
       accentBorder: "border-emerald-500/20",
-      glowShadow: "shadow-lg",
+      glowShadow: "shadow-2xl shadow-emerald-500/5",
       glowBorder: "border-emerald-500/30",
     }
   }[currentPlayer.themeColor];
 
   return (
-    <section id="casos-exito" className="relative w-full bg-slate-50 dark:bg-slate-950 py-24 px-6 md:px-12 overflow-hidden border-t border-slate-200 dark:border-slate-900 transition-colors duration-300">
+    <section id="casos-exito" className="relative w-full bg-[#FAFBF9] dark:bg-[#0D1410] py-24 px-6 md:px-12 overflow-hidden border-t border-slate-200 dark:border-emerald-500/10 transition-colors duration-300">
       <div
         className="absolute inset-0 z-0 opacity-15 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle at center, #10B981 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle at center, #5FA85F 1px, transparent 1px)',
           backgroundSize: '36px 36px'
         }}
       />
@@ -153,7 +153,7 @@ export function SuccessStories() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-orange-400"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-orange-400"
           >
             Casos de Éxito
           </motion.div>
@@ -161,7 +161,7 @@ export function SuccessStories() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-5xl"
+            className="font-display text-4xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white sm:text-5xl"
           >
             Fichajes que rompieron la frontera.
           </motion.h2>
@@ -169,7 +169,7 @@ export function SuccessStories() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-4 max-w-2xl mx-auto text-base text-slate-600 dark:text-slate-400"
+            className="mt-4 max-w-2xl mx-auto text-base text-slate-600 dark:text-slate-300"
           >
             De ligas locales y estados libres a contratos profesionales. Conoce a los deportistas que validaron sus datos y consiguieron su club ideal.
           </motion.p>
@@ -178,20 +178,20 @@ export function SuccessStories() {
         <div className="relative max-w-6xl mx-auto px-0 md:px-12">
           <button
             onClick={handlePrev}
-            className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 h-14 w-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/80 text-slate-800 dark:text-white flex items-center justify-center shadow-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-105 active:scale-95 transition cursor-pointer md:flex hidden"
+            className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 h-14 w-14 rounded-full border border-slate-200 dark:border-white/10 bg-[#F4F6F1]/95 dark:bg-[#121C16]/90 text-slate-800 dark:text-white flex items-center justify-center shadow-lg hover:bg-slate-100 dark:hover:bg-[#1C2E23] hover:scale-105 active:scale-95 transition cursor-pointer md:flex hidden"
             aria-label="Previous player"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 h-14 w-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/80 text-slate-800 dark:text-white flex items-center justify-center shadow-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-105 active:scale-95 transition cursor-pointer md:flex hidden"
+            className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 h-14 w-14 rounded-full border border-slate-200 dark:border-white/10 bg-[#F4F6F1]/95 dark:bg-[#121C16]/90 text-slate-800 dark:text-white flex items-center justify-center shadow-lg hover:bg-slate-100 dark:hover:bg-[#1C2E23] hover:scale-105 active:scale-95 transition cursor-pointer md:flex hidden"
             aria-label="Next player"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
-          <div className={`w-full overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl transition-all duration-500 ${colorMap.glowShadow}`}>
+          <div className={`w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-emerald-500/20 bg-[#F4F6F1]/95 dark:bg-[#121C16]/95 backdrop-blur-xl transition-all duration-500 ${colorMap.glowShadow}`}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPlayer.id}
@@ -201,13 +201,13 @@ export function SuccessStories() {
                 transition={{ duration: 0.45, ease: "easeOut" }}
                 className="flex flex-col md:flex-row min-h-[560px] w-full"
               >
-                <div className="w-full md:w-[35%] p-8 flex flex-col justify-between relative border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/10 bg-slate-100/40 dark:bg-slate-950/90 overflow-hidden">
+                <div className="w-full md:w-[35%] p-8 flex flex-col justify-between relative border-b md:border-b-0 md:border-r border-slate-200 dark:border-emerald-500/10 bg-slate-100/50 dark:bg-[#0D1410]/95 overflow-hidden">
                   <div className="absolute -right-8 -bottom-8 opacity-[0.08] dark:opacity-15 w-64 h-64 pointer-events-none select-none z-0">
                     {currentPlayer.silhouette}
                   </div>
                   <div className="relative z-10">
                     <div className="flex justify-between items-center mb-6">
-                      <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${colorMap.accentText} ${colorMap.accentBg} border ${colorMap.accentBorder}`}>
+                      <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-display text-[10px] font-bold uppercase tracking-widest ${colorMap.accentText} ${colorMap.accentBg} border ${colorMap.accentBorder}`}>
                         <Zap className="h-3 w-3" /> Fichaje Exitoso
                       </span>
                       <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
@@ -215,15 +215,15 @@ export function SuccessStories() {
                       </span>
                     </div>
                     <div className="mb-6">
-                      <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">{currentPlayer.name}</h3>
+                      <h3 className="font-display text-3xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white">{currentPlayer.name}</h3>
                       <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
                         <span className={`uppercase font-bold ${colorMap.accentText}`}>{currentPlayer.position}</span>
                         <span>•</span>
                         <span>{currentPlayer.age}</span>
                       </div>
                     </div>
-                    <div className="bg-slate-50/80 dark:bg-slate-900/30 border border-slate-200 dark:border-white/5 rounded-2xl p-4 mb-6">
-                      <div className="flex justify-between text-[9px] font-mono text-slate-400 dark:text-slate-500 mb-1.5">
+                    <div className="bg-slate-50/80 dark:bg-[#121C16]/80 border border-slate-200 dark:border-emerald-500/10 rounded-xl p-4 mb-6">
+                      <div className="flex justify-between text-[9px] font-mono text-slate-400 dark:text-slate-400 mb-1.5">
                         <span className="uppercase tracking-wider">Origen</span>
                         <span className="uppercase tracking-wider">Destino</span>
                       </div>
@@ -235,9 +235,9 @@ export function SuccessStories() {
                           </div>
                           <span className="text-[9px] uppercase tracking-wider text-slate-500 font-mono mt-0.5 block">Amateur / Libre</span>
                         </div>
-                        <div className="shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10">
+                        <div className="shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 dark:bg-[#0D1410] border border-slate-200 dark:border-emerald-500/20">
                           <motion.div animate={{ x: [0, 3, 0] }} transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}>
-                            <ArrowRight className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
+                            <ArrowRight className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                           </motion.div>
                         </div>
                         <div className="flex-1 min-w-0 text-right">
@@ -251,18 +251,18 @@ export function SuccessStories() {
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-4">
+                    <div className="flex items-center gap-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4">
                       <div className="h-10 w-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
                         <Activity className={`h-5 w-5 ${colorMap.accentText} animate-pulse`} />
                       </div>
                       <div>
                         <p className="text-[9px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">{currentPlayer.statName}</p>
-                        <p className="text-xl font-black text-slate-900 dark:text-white leading-tight mt-0.5">{currentPlayer.statValue}</p>
+                        <p className="font-display text-xl font-extrabold text-slate-900 dark:text-white leading-tight mt-0.5">{currentPlayer.statValue}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="w-full md:w-[65%] relative overflow-hidden bg-black flex-1 flex items-center justify-center min-h-[350px] md:min-h-0 border-t md:border-t-0 md:border-l border-slate-200 dark:border-white/10">
+                <div className="w-full md:w-[65%] relative overflow-hidden bg-black flex-1 flex items-center justify-center min-h-[350px] md:min-h-0 border-t md:border-t-0 md:border-l border-slate-200 dark:border-emerald-500/10">
                   {playing ? (
                     <video src={currentPlayer.videoUrl} poster={currentPlayer.videoPoster} controls autoPlay className="w-full h-full object-cover" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} />
                   ) : (
@@ -289,7 +289,7 @@ export function SuccessStories() {
           </div>
 
           <div className="flex justify-between items-center gap-4 mt-6 md:hidden">
-            <button onClick={handlePrev} className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 text-slate-800 dark:text-white flex items-center justify-center shadow-md active:scale-95 transition" aria-label="Previous player">
+            <button onClick={handlePrev} className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#121C16] text-slate-800 dark:text-white flex items-center justify-center shadow-md active:scale-95 transition" aria-label="Previous player">
               <ChevronLeft className="h-5 w-5" />
             </button>
             <div className="flex gap-2">
@@ -297,7 +297,7 @@ export function SuccessStories() {
                 <button key={p.id} onClick={() => { setPlaying(false); setActiveIndex(idx); }} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? "w-6 bg-emerald-500" : "w-1.5 bg-slate-300 dark:bg-slate-700"}`} aria-label={`Go to slide ${idx + 1}`} />
               ))}
             </div>
-            <button onClick={handleNext} className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 text-slate-800 dark:text-white flex items-center justify-center shadow-md active:scale-95 transition" aria-label="Next player">
+            <button onClick={handleNext} className="h-11 w-11 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#121C16] text-slate-800 dark:text-white flex items-center justify-center shadow-md active:scale-95 transition" aria-label="Next player">
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
