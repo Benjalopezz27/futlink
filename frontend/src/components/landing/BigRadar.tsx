@@ -45,7 +45,7 @@ export function BigRadar() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        style={{ transformOrigin: `${cx}px ${cy}px`, filter: "drop-shadow(0 0 12px rgba(249,115,22,0.6))" }}
+        style={{ transformOrigin: `${cx}px ${cy}px` }}
       />
       {values.map((v, i) => {
         const [x, y] = pt(i, R * v);

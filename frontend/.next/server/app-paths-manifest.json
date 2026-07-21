@@ -1,3 +1,7 @@
 {
+  "/quienes-somos/page": "app/quienes-somos/page.js",
+  "/jugadores/page": "app/jugadores/page.js",
+  "/reclutadores/page": "app/reclutadores/page.js",
+  "/casos-exito/page": "app/casos-exito/page.js",
   "/page": "app/page.js"
 }

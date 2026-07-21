@@ -31,8 +31,8 @@ export function MagneticButton({
 
   const styles =
     variant === "primary"
-      ? "bg-orange-500 text-white shadow-glow-orange hover:bg-orange-400"
-      : "bg-white/5 text-emerald-300 border border-emerald-400/50 hover:bg-emerald-500/10 hover:shadow-glow-emerald";
+      ? "bg-orange-500 text-white hover:bg-orange-600 shadow-md shadow-orange-500/20 active:scale-95"
+      : "bg-emerald-700 text-white hover:bg-emerald-800 border border-emerald-600/50 shadow-sm active:scale-95";
 
   return (
     <motion.a
@@ -41,7 +41,7 @@ export function MagneticButton({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ x: sx, y: sy }}
-      className={`group relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all ${styles}`}
+      className={`group relative inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold tracking-wide transition-all ${styles}`}
     >
       {children}
       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

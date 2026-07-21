@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Zap } from "lucide-react";
-import { Globe } from "@/components/ui/globe";
+import WorldMap from "@/components/ui/world-map";
 import { useTheme } from "@/components/ThemeProvider";
 
 export function ConnectionMap() {
@@ -39,6 +39,25 @@ export function ConnectionMap() {
     { id: "arc12", from: [-23.5505, -46.6333] as [number, number], to: [25.7617, -80.1918] as [number, number] }, // São Paulo -> Miami
   ];
 
+  // Transform markers and arcs for WorldMap dots format
+  const labelMap = new Map(markers.map(m => [m.location.join(","), m.label]));
+  const mapDots = arcs.map(arc => {
+    const startLoc = arc.from;
+    const endLoc = arc.to;
+    return {
+      start: {
+        lat: startLoc[0],
+        lng: startLoc[1],
+        label: labelMap.get(startLoc.join(","))
+      },
+      end: {
+        lat: endLoc[0],
+        lng: endLoc[1],
+        label: labelMap.get(endLoc.join(","))
+      }
+    };
+  });
+
   return (
     <section className="relative w-full md:aspect-[16/9] aspect-auto min-h-[620px] md:min-h-0 max-w-7xl bg-slate-50 dark:bg-slate-950 overflow-hidden font-sans border border-slate-200 dark:border-slate-800/50 rounded-2xl mx-auto shadow-lg dark:shadow-2xl flex flex-col items-center justify-center p-6 md:p-0 transition-colors duration-300">
       
@@ -51,15 +70,15 @@ export function ConnectionMap() {
         }}
       />
 
-      {/* 2. Globe Component (Cobe) */}
-      <div className="relative md:absolute md:inset-0 z-10 w-full flex items-center justify-center p-4">
-        <div className="w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] md:w-[580px] md:h-[580px] max-w-full max-h-full">
-          <Globe markers={markers} arcs={arcs} className="w-full h-full" dark={theme === "dark" ? 1 : 0} />
+      {/* 2. World Map Component */}
+      <div className="relative md:absolute md:inset-0 z-10 w-full flex items-center justify-center p-8">
+        <div className="w-full max-w-5xl">
+          <WorldMap dots={mapDots} lineColor="#10b981" />
         </div>
       </div>
 
       {/* 3. UI Superpuesta Flotante */}
-      <div className="relative md:absolute md:bottom-8 md:right-8 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border border-orange-500/30 p-5 rounded-2xl shadow-lg dark:shadow-[0_0_40px_rgba(249,115,22,0.15)] max-w-[280px] w-full mt-4 md:mt-0 transition-all duration-300">
+      <div className="relative md:absolute md:bottom-8 md:right-8 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-5 rounded-2xl shadow-lg max-w-[280px] w-full mt-4 md:mt-0 transition-all duration-300">
         <div className="flex items-center gap-2 text-orange-500 mb-3">
           <Zap className="h-4 w-4 text-orange-500" />
           <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Match Confirmado</span>
@@ -69,7 +88,7 @@ export function ConnectionMap() {
         
         {/* Progress bar decorativa */}
         <div className="mt-4 h-1 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-orange-500 to-emerald-500 w-[85%] rounded-full"></div>
+          <div className="h-full bg-orange-500 w-[85%] rounded-full"></div>
         </div>
       </div>
 

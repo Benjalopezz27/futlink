@@ -9,15 +9,15 @@ export function Matchmaking() {
     <Section id="red" className="py-32">
       <Reveal>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">// 02 · Red global</p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          <p className="font-display text-xs uppercase tracking-[0.25em] text-emerald-600 dark:text-emerald-400 font-bold">// 02 · Red global</p>
+          <h2 className="mt-4 font-display text-4xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             Un jugador en Sudamérica.
             <br />
-            <span className="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">
+            <span className="text-emerald-600 dark:text-emerald-400">
               Una universidad en EE.UU.
             </span>
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             Nuestra red de matchmaking conecta talento con oportunidades reales sin importar las fronteras.
           </p>
         </div>
@@ -36,12 +36,12 @@ export function Matchmaking() {
           { icon: Sparkles, title: "Match inteligente", body: "Algoritmo que empareja perfil deportivo, académico y financiero." },
         ].map((f, i) => (
           <Reveal key={f.title} delay={i * 0.1}>
-            <div className="group relative h-full rounded-2xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-6 backdrop-blur-md transition hover:border-emerald-400/40 hover:bg-white/95 dark:hover:bg-white/[0.06] shadow-lg dark:shadow-none">
-              <span className="grid h-11 w-11 place-items-center rounded-lg bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-400/30">
+            <div className="group relative h-full rounded-2xl border border-slate-200 dark:border-emerald-500/20 bg-[#F4F6F1]/90 dark:bg-[#121C16]/90 p-6 backdrop-blur-md transition hover:border-emerald-500/50 hover:bg-[#FAFBF9] dark:hover:bg-[#121C16] shadow-xl">
+              <span className="grid h-11 w-11 place-items-center rounded-lg bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30">
                 <f.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-white">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{f.body}</p>
+              <h3 className="mt-5 font-display text-xl font-bold uppercase text-slate-900 dark:text-white">{f.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{f.body}</p>
             </div>
           </Reveal>
         ))}
