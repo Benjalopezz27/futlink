@@ -13,7 +13,7 @@ export function Hero() {
       <PitchBackground />
 
       {/* Main text & CTA block */}
-      <div className="relative z-20 mx-auto flex max-w-4xl flex-col items-center justify-center px-6 py-24 text-center">
+      <div className="relative z-20 mx-auto flex max-w-4xl flex-col items-center justify-center px-6 pt-12 pb-20 md:pt-16 md:pb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
