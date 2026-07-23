@@ -50,6 +50,14 @@ export interface PlayerOnboardingDto {
   secondaryRole?: string;
   contractStatus?: string;
   currentClub?: string;
+  currentLeague?: string;
+  minutesPlayed?: number;
+  goals?: number;
+  assists?: number;
+  gpa?: number;
+  graduationYear?: number;
+  primaryHighlightUrl?: string;
+  federationId?: string;
 }
 export interface RecruiterOnboardingDto {
   institutionId?: string;
@@ -60,4 +68,7 @@ export interface RecruiterOnboardingDto {
   website?: string;
   logoUrl?: string;
   title?: string;
+  categories?: string[];
+  modalities?: string[];
+  kycDocumentUrl?: string;
 }

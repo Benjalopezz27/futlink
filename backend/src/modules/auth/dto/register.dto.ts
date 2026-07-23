@@ -8,23 +8,23 @@ import {
 import { UserRole } from '../enums/user-role.enum';
 
 export class RegisterDto {
-  @IsEmail({}, { message: 'Invalid email address' })
-  @IsNotEmpty({ message: 'Email is required' })
+  @IsEmail({}, { message: 'El email no tiene un formato válido.' })
+  @IsNotEmpty({ message: 'El email es obligatorio.' })
   email: string;
 
   @IsString()
-  @MinLength(8, { message: 'Password must be at least 8 characters long' })
+  @MinLength(8, { message: 'La contraseña debe tener al menos 8 caracteres.' })
   password: string;
 
   @IsString()
-  @IsNotEmpty({ message: 'First name is required' })
+  @IsNotEmpty({ message: 'El nombre es obligatorio.' })
   firstName: string;
 
   @IsString()
-  @IsNotEmpty({ message: 'Last name is required' })
+  @IsNotEmpty({ message: 'El apellido es obligatorio.' })
   lastName: string;
 
-  @IsEnum(UserRole, { message: 'Role must be either PLAYER or RECRUITER' })
-  @IsNotEmpty({ message: 'Role is required' })
+  @IsEnum(UserRole, { message: 'El rol debe ser Jugador o Reclutador.' })
+  @IsNotEmpty({ message: 'Debés indicar tu rol (Jugador o Reclutador).' })
   role: UserRole;
 }

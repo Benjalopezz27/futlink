@@ -21,7 +21,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(payload: JwtPayload) {
     const user = await this.authService.validateUserById(payload.sub);
     if (!user) {
-      throw new UnauthorizedException('User no longer exists or is inactive');
+      throw new UnauthorizedException('Tu sesión ya no es válida. Iniciá sesión nuevamente.');
     }
     return user;
   }

@@ -78,6 +78,21 @@ export class PlayerProfile {
   @Column({ name: 'current_club', type: 'varchar', nullable: true })
   currentClub: string | null;
 
+  @Column({ name: 'current_league', type: 'varchar', nullable: true })
+  currentLeague: string | null;
+
+  @Column({ type: 'float', nullable: true })
+  gpa: number | null;
+
+  @Column({ name: 'graduation_year', type: 'int', nullable: true })
+  graduationYear: number | null;
+
+  @Column({ name: 'primary_highlight_url', type: 'varchar', nullable: true })
+  primaryHighlightUrl: string | null;
+
+  @Column({ name: 'federation_id', type: 'varchar', nullable: true })
+  federationId: string | null;
+
   // Radar 0-100 Attributes
   @Column({ name: 'attr_speed', type: 'int', default: 50 })
   attrSpeed: number;

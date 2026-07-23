@@ -1,4 +1,11 @@
-import { IsEnum, IsOptional, IsString, IsUUID, IsUrl } from 'class-validator';
+import {
+  IsArray,
+  IsEnum,
+  IsOptional,
+  IsString,
+  IsUUID,
+  IsUrl,
+} from 'class-validator';
 import { InstitutionType } from '../../institutions/entities/institution.entity';
 
 export class RecruiterOnboardingDto {
@@ -23,7 +30,7 @@ export class RecruiterOnboardingDto {
   divisionLeague?: string;
 
   @IsOptional()
-  @IsUrl()
+  @IsString()
   website?: string;
 
   @IsOptional()
@@ -33,4 +40,18 @@ export class RecruiterOnboardingDto {
   @IsOptional()
   @IsString()
   title?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  categories?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  modalities?: string[];
+
+  @IsOptional()
+  @IsUrl()
+  kycDocumentUrl?: string;
 }

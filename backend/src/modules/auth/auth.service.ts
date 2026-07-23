@@ -38,7 +38,7 @@ export class AuthService {
     });
 
     if (existingUser) {
-      throw new ConflictException('A user with this email already exists');
+      throw new ConflictException('Ya existe un legajo registrado con ese email.');
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -79,17 +79,17 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('Email o contraseña incorrectos.');
     }
 
     if (!user.isActive) {
-      throw new UnauthorizedException('Account is deactivated');
+      throw new UnauthorizedException('Tu cuenta está desactivada. Contactá a soporte de FutLink.');
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('Email o contraseña incorrectos.');
     }
 
     const accessToken = this.generateToken(user);
@@ -106,11 +106,11 @@ export class AuthService {
   ): Promise<AuthResponseDto> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
-      throw new UnauthorizedException('User not found');
+      throw new UnauthorizedException('No encontramos tu legajo.');
     }
 
     if (user.role !== UserRole.PLAYER) {
-      throw new BadRequestException('Only player accounts can perform player onboarding');
+      throw new BadRequestException('Solo los jugadores pueden completar este perfil deportivo.');
     }
 
     await this.playersService.updateProfile(userId, onboardingDto);
@@ -132,11 +132,11 @@ export class AuthService {
   ): Promise<AuthResponseDto> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
-      throw new UnauthorizedException('User not found');
+      throw new UnauthorizedException('No encontramos tu legajo.');
     }
 
     if (user.role !== UserRole.RECRUITER) {
-      throw new BadRequestException('Only recruiter accounts can perform recruiter onboarding');
+      throw new BadRequestException('Solo los reclutadores pueden completar los datos de la institución.');
     }
 
     await this.institutionsService.onboardRecruiter(userId, onboardingDto);
@@ -158,7 +158,7 @@ export class AuthService {
   ): Promise<{ message: string }> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
-      throw new UnauthorizedException('User not found');
+      throw new UnauthorizedException('No encontramos tu legajo.');
     }
 
     const isOldPasswordValid = await bcrypt.compare(
@@ -167,14 +167,14 @@ export class AuthService {
     );
 
     if (!isOldPasswordValid) {
-      throw new BadRequestException('Current password is incorrect');
+      throw new BadRequestException('La contraseña actual no es correcta.');
     }
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(changePasswordDto.newPassword, salt);
     await this.userRepository.save(user);
 
-    return { message: 'Password updated successfully' };
+    return { message: 'Contraseña actualizada correctamente.' };
   }
 
   async validateUserById(id: string): Promise<User | null> {

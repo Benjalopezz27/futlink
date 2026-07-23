@@ -32,7 +32,7 @@ export default function LoginPage() {
         );
       }
     } catch (err: any) {
-      setError(err.message || "Credenciales inválidas. Por favor intenta de nuevo.");
+      setError(err.message || "No reconocemos ese legajo. Revisá tus credenciales e intentá de nuevo.");
     } finally {
       setLoading(false);
     }

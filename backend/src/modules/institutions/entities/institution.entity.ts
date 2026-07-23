@@ -41,6 +41,15 @@ export class Institution {
   @Column({ name: 'logo_url', type: 'varchar', nullable: true })
   logoUrl: string | null;
 
+  @Column({ type: 'simple-array', nullable: true })
+  categories: string[] | null;
+
+  @Column({ type: 'simple-array', nullable: true })
+  modalities: string[] | null;
+
+  @Column({ name: 'kyc_document_url', type: 'varchar', nullable: true })
+  kycDocumentUrl: string | null;
+
   @Column({ name: 'is_verified_futlink', default: false })
   isVerifiedFutlink: boolean;
 

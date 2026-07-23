@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 import { PasswordInput } from "@/components/auth/PasswordInput";
-import { authApi } from "@/lib/api";
+import { authApi, ONBOARDING_BIRTHDATE_KEY } from "@/lib/api";
 import { UserRole } from "@/types/auth";
 
 type RoleParam = "player" | "recruiter";
@@ -51,12 +51,12 @@ function RegisterStep2Content() {
     setError(null);
 
     if (!acceptedTerms) {
-      setError("Debés aceptar los términos y condiciones para continuar.");
+      setError("Aceptá el reglamento de FutLink (términos y condiciones) para continuar.");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
+      setError("Las contraseñas no coinciden. Revisá los datos antes de generar tu ficha.");
       return;
     }
 
@@ -71,15 +71,13 @@ function RegisterStep2Content() {
         role: role === "player" ? UserRole.PLAYER : UserRole.RECRUITER,
       });
 
-      if (role === "player") {
-        await authApi.onboardPlayer({
-          birthDate: birthDate || undefined,
-        });
+      if (role === "player" && birthDate) {
+        sessionStorage.setItem(ONBOARDING_BIRTHDATE_KEY, birthDate);
       }
 
       router.push(role === "player" ? "/onboarding/player" : "/onboarding/recruiter");
     } catch (err: any) {
-      setError(err.message || "No pudimos crear tu cuenta. Por favor intenta de nuevo.");
+      setError(err.message || "No pudimos abrir tu legajo. Intentá de nuevo en unos segundos.");
     } finally {
       setLoading(false);
     }
@@ -87,10 +85,11 @@ function RegisterStep2Content() {
 
   return (
     <div>
-      {/* Step Progress Bar (2 of 2, both segments active) */}
+      {/* Step Progress Bar (2 of 3) */}
       <div className="mb-6 flex items-center gap-2">
         <div className="h-1.5 flex-1 bg-rust" />
         <div className="h-1.5 flex-1 bg-clay" />
+        <div className="h-1.5 flex-1 bg-line-warm" />
       </div>
 
       {/* Header */}
@@ -109,7 +108,7 @@ function RegisterStep2Content() {
           </h2>
         </div>
         <p className="mt-1.5 text-sm text-muted-warm">
-          Paso 2 de 2 · Cuéntanos un poco más sobre ti.
+          Paso 2 de 3 · Cuéntanos un poco más sobre ti.
         </p>
       </div>
 

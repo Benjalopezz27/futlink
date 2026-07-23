@@ -2,8 +2,10 @@ import {
   IsDateString,
   IsEnum,
   IsInt,
+  IsNumber,
   IsOptional,
   IsString,
+  IsUrl,
   Max,
   Min,
 } from 'class-validator';
@@ -64,4 +66,41 @@ export class PlayerOnboardingDto {
   @IsOptional()
   @IsString()
   currentClub?: string;
+
+  @IsOptional()
+  @IsString()
+  currentLeague?: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  minutesPlayed?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  goals?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  assists?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  @Max(10)
+  gpa?: number;
+
+  @IsOptional()
+  @IsInt()
+  graduationYear?: number;
+
+  @IsOptional()
+  @IsUrl()
+  primaryHighlightUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  federationId?: string;
 }

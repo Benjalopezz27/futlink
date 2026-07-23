@@ -27,9 +27,10 @@ function RegisterFormContent() {
 
   return (
     <div>
-      {/* Step Progress Bar (2 thick dashes) */}
+      {/* Step Progress Bar (3 thick dashes) */}
       <div className="mb-6 flex items-center gap-2">
         <div className="h-1.5 flex-1 bg-[#B85C38]" />
+        <div className="h-1.5 flex-1 bg-[#D8CFB8]" />
         <div className="h-1.5 flex-1 bg-[#D8CFB8]" />
       </div>
 
@@ -39,7 +40,7 @@ function RegisterFormContent() {
           CREA TU CUENTA
         </h2>
         <p className="mt-1.5 text-sm text-[#6B6455]">
-          Paso 1 de 2 · ¿Cómo quieres usar FutLink?
+          Paso 1 de 3 · ¿Cómo quieres usar FutLink?
         </p>
       </div>
 

@@ -12,6 +12,8 @@ const API_BASE_URL =
 
 const TOKEN_KEY = 'futlink_token';
 
+export const ONBOARDING_BIRTHDATE_KEY = 'futlink_onboarding_birthDate';
+
 /**
  * Token Storage Helpers
  */
@@ -126,4 +128,44 @@ export const authApi = {
   logout(): void {
     removeToken();
   },
+};
+
+/**
+ * File Upload Endpoints API Service
+ */
+async function uploadFile(
+  endpoint: string,
+  file: File,
+): Promise<{ url: string }> {
+  const token = getToken();
+  const formData = new FormData();
+  formData.append('file', file);
+
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: 'POST',
+    headers,
+    body: formData,
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    const errorMessage =
+      Array.isArray(data.message)
+        ? data.message.join(', ')
+        : data.message || `Upload failed with status ${response.status}`;
+    throw new Error(errorMessage);
+  }
+
+  return data as { url: string };
+}
+
+export const uploadApi = {
+  uploadImage: (file: File) => uploadFile('/uploads/image', file),
+  uploadVideo: (file: File) => uploadFile('/uploads/video', file),
 };

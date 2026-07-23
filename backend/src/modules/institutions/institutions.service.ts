@@ -13,6 +13,9 @@ export interface CreateRecruiterOnboardingData {
   website?: string;
   logoUrl?: string;
   title?: string;
+  categories?: string[];
+  modalities?: string[];
+  kycDocumentUrl?: string;
 }
 
 @Injectable()
@@ -56,7 +59,7 @@ export class InstitutionsService {
         where: { id: data.institutionId },
       });
       if (!existingInstitution) {
-        throw new NotFoundException('Specified institution was not found');
+        throw new NotFoundException('No encontramos la institución indicada.');
       }
       recruiter.institution = existingInstitution;
       recruiter.institutionId = existingInstitution.id;
@@ -68,6 +71,9 @@ export class InstitutionsService {
         divisionLeague: data.divisionLeague || null,
         website: data.website || null,
         logoUrl: data.logoUrl || null,
+        categories: data.categories || null,
+        modalities: data.modalities || null,
+        kycDocumentUrl: data.kycDocumentUrl || null,
         isVerifiedFutlink: false,
       });
 

@@ -83,6 +83,16 @@
   animation: grid-pan 8s linear infinite;
 }
 
+/* Ruled Notebook Paper Texture (layer over an existing bg-* color utility) */
+.bg-paper-lines {
+  background-image: linear-gradient(rgba(107, 100, 85, 0.14) 1px, transparent 1px);
+  background-size: 100% 32px;
+}
+
+.bg-card-paper-bright {
+  background-color: #FBF9F2;
+}
+
 /* Custom Geometrics & Pentagon Clips */
 .clip-pentagon {
   clip-path: polygon(50% 0%, 100% 22%, 100% 78%, 50% 100%, 0% 78%, 0% 22%);
