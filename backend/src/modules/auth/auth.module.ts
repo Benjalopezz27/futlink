@@ -8,6 +8,8 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { RolesGuard } from './guards/roles.guard';
+import { PlayersModule } from '../players/players.module';
+import { InstitutionsModule } from '../institutions/institutions.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { RolesGuard } from './guards/roles.guard';
         },
       }),
     }),
+    PlayersModule,
+    InstitutionsModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, RolesGuard],
