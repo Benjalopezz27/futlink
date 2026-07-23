@@ -17,7 +17,7 @@ export function FinalCTA() {
               Crea tu perfil en menos de 5 minutos y entra al radar de reclutadores de todo el mundo.
             </p>
             <div className="mt-8 flex justify-center">
-              <MagneticButton variant="primary">Empezar ahora</MagneticButton>
+              <MagneticButton variant="primary" href="/register">Empezar ahora</MagneticButton>
             </div>
           </div>
         </div>

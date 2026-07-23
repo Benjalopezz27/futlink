@@ -1,7 +1,14 @@
-import { AuthResponse, LoginDto, RegisterDto, User } from '@/types/auth';
+import {
+  AuthResponse,
+  LoginDto,
+  PlayerOnboardingDto,
+  RecruiterOnboardingDto,
+  RegisterDto,
+  User,
+} from '@/types/auth';
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
 const TOKEN_KEY = 'futlink_token';
 
@@ -92,6 +99,28 @@ export const authApi = {
     return apiFetch<User>('/auth/me', {
       method: 'GET',
     });
+  },
+
+  async onboardPlayer(data: PlayerOnboardingDto): Promise<AuthResponse> {
+    const result = await apiFetch<AuthResponse>('/auth/onboarding/player', {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+    });
+    if (result.accessToken) {
+      setToken(result.accessToken);
+    }
+    return result;
+  },
+
+  async onboardRecruiter(data: RecruiterOnboardingDto): Promise<AuthResponse> {
+    const result = await apiFetch<AuthResponse>('/auth/onboarding/recruiter', {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+    });
+    if (result.accessToken) {
+      setToken(result.accessToken);
+    }
+    return result;
   },
 
   logout(): void {
