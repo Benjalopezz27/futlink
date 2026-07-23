@@ -7,6 +7,7 @@ export class UserPayloadDto {
   lastName: string;
   role: UserRole;
   isActive: boolean;
+  isOnboarded: boolean;
   createdAt: Date;
 }
 

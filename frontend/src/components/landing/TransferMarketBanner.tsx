@@ -41,7 +41,7 @@ export function TransferMarketBanner() {
         </div>
         <span className="hidden md:inline text-emerald-500/40">•</span>
         <a
-          href="/jugadores"
+          href="/register"
           className="hidden md:inline-flex items-center gap-1 font-display text-[11px] font-bold uppercase tracking-wider text-orange-400 hover:text-orange-300 underline underline-offset-2 transition"
         >
           Registra tu perfil antes del cierre

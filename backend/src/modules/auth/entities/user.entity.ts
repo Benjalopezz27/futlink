@@ -4,8 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToOne,
 } from 'typeorm';
 import { UserRole } from '../enums/user-role.enum';
+import { PlayerProfile } from '../../players/entities/player-profile.entity';
+import { RecruiterProfile } from '../../institutions/entities/recruiter-profile.entity';
 
 @Entity('users')
 export class User {
@@ -32,6 +35,15 @@ export class User {
 
   @Column({ name: 'is_active', default: true })
   isActive: boolean;
+
+  @Column({ name: 'is_onboarded', default: false })
+  isOnboarded: boolean;
+
+  @OneToOne(() => PlayerProfile, (profile) => profile.user)
+  playerProfile: PlayerProfile;
+
+  @OneToOne(() => RecruiterProfile, (profile) => profile.user)
+  recruiterProfile: RecruiterProfile;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

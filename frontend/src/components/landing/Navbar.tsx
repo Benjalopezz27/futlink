@@ -47,11 +47,11 @@ export function Navbar() {
 
         {/* Desktop Actions & Theme Toggle (Visible on lg >= 1024px) */}
         <div className="hidden items-center gap-4 lg:flex">
-          <Link href="#" className="rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white transition">
+          <Link href="/login" className="rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white transition">
             Iniciar Sesión
           </Link>
           <Link
-            href="#"
+            href="/register"
             className="inline-flex items-center rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600 shadow-sm"
           >
             Crear Cuenta
@@ -133,14 +133,14 @@ export function Navbar() {
               })}
               <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex flex-col gap-3">
                 <Link
-                  href="#"
+                  href="/login"
                   onClick={() => setOpen(false)}
                   className="rounded-md border border-slate-200 dark:border-white/10 px-5 py-2.5 text-center font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 transition"
                 >
                   Iniciar Sesión
                 </Link>
                 <Link
-                  href="#"
+                  href="/register"
                   onClick={() => setOpen(false)}
                   className="rounded-md bg-orange-500 px-5 py-2.5 text-center font-semibold text-white transition hover:bg-orange-600 shadow-sm"
                 >

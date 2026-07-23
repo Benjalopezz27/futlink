@@ -6,7 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-.next
+.next/
+.next/cache
+.next/standalone
+.next/static
 node_modules
 dist
 dist-ssr

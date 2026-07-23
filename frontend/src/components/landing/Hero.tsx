@@ -55,8 +55,8 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <MagneticButton variant="primary">Soy Jugador</MagneticButton>
-          <MagneticButton variant="ghost">Soy Reclutador</MagneticButton>
+          <MagneticButton variant="primary" href="/register?role=player">Soy Jugador</MagneticButton>
+          <MagneticButton variant="ghost" href="/register?role=recruiter">Soy Reclutador</MagneticButton>
         </motion.div>
       </div>
 
